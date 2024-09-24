@@ -5,7 +5,7 @@ namespace SpankBank1
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            //Test
             // Add services to the container.
             builder.Services.AddRazorPages();
 
