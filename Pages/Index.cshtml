@@ -1,10 +1,31 @@
 ﻿@page
 @model IndexModel
-@{
-    ViewData["Title"] = "Home page";
-}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Bank Accounts</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Account Holder</th>
+            <th>Email</th>
+            <th>Balance</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var account in Model.Accounts)
+        {
+            <tr>
+                <td>@account.AccountHolderName</td>
+                <td>@account.Email</td>
+                <td>@account.Balance.ToString("C")</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@account.Id" class="btn btn-primary">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@account.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="./Create" class="btn btn-success">Create New Account</a>

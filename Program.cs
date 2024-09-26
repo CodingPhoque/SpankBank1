@@ -1,3 +1,6 @@
+using SpankBank1.Interface;
+using SpankBank1.Services;
+
 namespace SpankBank1
 {
     public class Program
@@ -7,6 +10,7 @@ namespace SpankBank1
             var builder = WebApplication.CreateBuilder(args);
             // Test
             // Add services to the container.
+            builder.Services.AddScoped<IAccountService, BankService>();
             builder.Services.AddRazorPages();
 
             var app = builder.Build();
