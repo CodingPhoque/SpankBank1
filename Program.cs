@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using SpankBank1.DAL;
 using SpankBank1.Interface;
 using SpankBank1.Services;
 
@@ -12,6 +15,9 @@ namespace SpankBank1
             // Add services to the container.
             builder.Services.AddScoped<IAccountService, BankService>();
             builder.Services.AddRazorPages();
+
+            builder.Services.AddDbContext<BankContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 
