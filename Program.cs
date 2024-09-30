@@ -12,15 +12,16 @@ namespace SpankBank1
         {
             var builder = WebApplication.CreateBuilder(args);
             // Test
+         
             // Add services to the container.
             builder.Services.AddScoped<IAccountService, BankService>();
             builder.Services.AddRazorPages();
 
+            // Register BankContext with the connection string from appsettings.json
             builder.Services.AddDbContext<BankContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
-
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
