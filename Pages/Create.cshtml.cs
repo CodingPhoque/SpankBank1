@@ -10,9 +10,7 @@ public class CreateModel : PageModel
     public CreateModel(IAccountService bankService) {
         _bankService = bankService;
     }
-    [BindProperty]
-    public int Id { get; set; }
-
+  
     [BindProperty]
     public string Name { get; set; }
 

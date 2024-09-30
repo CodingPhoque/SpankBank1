@@ -4,6 +4,7 @@
 <h2>Edit Account</h2>
 
 <form method="post">
+    <input type="hidden" asp-for="Account.Id" />
     <div class="form-group">
         <label asp-for="Account.AccountHolderName"></label>
         <input asp-for="Account.AccountHolderName" class="form-control" />

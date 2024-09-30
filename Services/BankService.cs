@@ -1,6 +1,6 @@
 ﻿using SpankBank1.Interface;
 using SpankBank1.Models;
-using SpankBank1.DAL; // Assuming BankContext is in this namespace
+using SpankBank1.DAL; 
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,9 +22,9 @@ namespace SpankBank1.Services
             return _bankService.BankAccounts.ToList();
         }
 
-        public Account GetAccountById(int id) {
+        public Account GetAccountById(int Id) {
             // Find the account by ID in the database
-            return _bankService.BankAccounts.FirstOrDefault(a => a.Id == id);
+            return _bankService.BankAccounts.FirstOrDefault(a => a.Id == Id);
         }
 
         public void CreateAccount( string name, string email, string password) {
