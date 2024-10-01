@@ -11,10 +11,9 @@ public class EditModel : PageModel
     public EditModel(IAccountService bankService) {
         _bankService = bankService;
     }
-
     [BindProperty]
     public Account Account { get; set; }
-
+   
     public IActionResult OnGet(int id) {
         Account = _bankService.GetAccountById(id);
         if (Account == null)
@@ -23,7 +22,7 @@ public class EditModel : PageModel
         }
         return Page();
     }
-
+   
     public IActionResult OnPost() {
         if (ModelState.IsValid)
         {

@@ -10,7 +10,7 @@ public class CreateModel : PageModel
     public CreateModel(IAccountService bankService) {
         _bankService = bankService;
     }
-
+  
     [BindProperty]
     public string Name { get; set; }
 
@@ -23,7 +23,7 @@ public class CreateModel : PageModel
     public IActionResult OnPost() {
         if (ModelState.IsValid)
         {
-            _bankService.CreateAccount(Name, Email, Password);
+            _bankService.CreateAccount( Name, Email, Password);
             return RedirectToPage("./Index");
         }
 
