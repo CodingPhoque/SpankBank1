@@ -61,6 +61,16 @@ namespace SpankBank1.Services
                 _bankService.SaveChanges(); // Remove and save changes to the database
             }
         }
+
+        public void DepositAccount(int id, decimal amount)
+        {
+            var account = GetAccountById(id);
+            if (account != null)
+            {
+                account.Balance += amount;
+                _bankService.SaveChanges(); // Save the changes to the database
+            }
+        }
     }
 }
 
