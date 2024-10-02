@@ -1,26 +1,36 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SpankBank1.Interface;
 
 namespace SpankBank1.Pages
 {
     public class WithdrawModel : PageModel
     {
+        private readonly IAccountService _bankService;
+
+        public WithdrawModel(IAccountService bankService)
+        {
+            _bankService = bankService;
+        }
+
+        [BindProperty]
         public decimal Balance { get; set; }
 
         public void OnGet()
         {
+
             Balance = 0; // initial balance
+
         }
 
-        public IActionResult OnPost(decimal amount)
+        public IActionResult OnPost(int id, decimal amount)
         {
-            if (amount > Balance)
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError("amount", "Insufficient funds");
-                return Page();
+                _bankService.WithdrawAccount(id, amount);
             }
-            Balance -= amount;
             return Page();
         }
+
     }
 }

@@ -11,6 +11,8 @@ namespace SpankBank1.Interface
         void DeleteAccount(int id);                // Delete
 
         void DepositAccount(int id, decimal amount);
+
+        void WithdrawAccount(int id, decimal amount);
         
     }
 }
