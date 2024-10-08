@@ -1,0 +1,24 @@
+﻿@page
+@model SpankBank1.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+<h2>Login</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Admin.AdminName"></label>
+        <input asp-for="Admin.AdminName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Admin.Password"></label>
+        <input asp-for="Admin.Password" type="password" class="form-control" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+</form>
+
+@* @if (!string.IsNullOrEmpty(Model.Message))
+{
+    <div class="alert alert-danger">@Model.Message</div> *@
