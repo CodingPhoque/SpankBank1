@@ -2,17 +2,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SpankBank1.Interface;
 using SpankBank1.Models;
-using SpankBank1.Services;
 
 namespace SpankBank1.Pages
 {
-    // moved to AdminPageModel
-
-    public class IndexModel : PageModel
+    public class AdminPageModel : PageModel
     {
         private readonly IAccountService _bankService;
 
-        public IndexModel(IAccountService bankService)
+        public AdminPageModel(IAccountService bankService)
         {
             _bankService = bankService;
         }
