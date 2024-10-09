@@ -1,12 +1,15 @@
-﻿@page
+﻿@page "{id:int}"
 @model SpankBank1.Pages.DepositModel
 
+<h2>Deposit Funds</h2>
 
 <form method="post">
+    <input type="hidden" asp-for="AccountId" value="@Model.AccountId" />
+
     <label for="amount">Amount:</label>
-    <input type="number" id="amount" name="amount" required>
+    <input type="number" id="amount" name="amount" required />
+
     <button type="submit">Deposit</button>
-  
 </form>
 
 <h2>Account Balance: @Model.Balance</h2>
