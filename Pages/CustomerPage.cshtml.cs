@@ -6,7 +6,7 @@ using SpankBank1.Models;
 
 namespace SpankBank1.Pages
 {
-    [Authorize(Policy = "CustomerOnly")]
+    //[Authorize(Policy = "CustomerOnly")]
     public class CustomerPage : PageModel
     {
         private readonly IAccountService _bankService;
