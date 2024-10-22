@@ -7,6 +7,8 @@ namespace SpankBank1.Pages
 {
     public class DepositModel : PageModel
     {
+        public Account Account { get; set; }
+        public decimal DepositAmount { get; set; }
 
         private readonly IAccountService _bankService;
 
@@ -18,21 +20,40 @@ namespace SpankBank1.Pages
         [BindProperty]
         public decimal Balance { get; set; }
 
-        public void OnGet()
+        //public void OnGet()
+        //{
+
+        //        //Balance = 0; // initial balance
+
+
+        //}
+
+        public IActionResult OnGet(int id)
         {
-            
-                Balance = 0; // initial balance
-            
+            Account = _bankService.GetAccountById(id);
+            return Page();
         }
+
+        //public IActionResult OnPost(int id, decimal amount)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _bankService.DepositAccount(id, amount);
+
+        //    }
+        //    return Page();
+        //}
 
         public IActionResult OnPost(int id, decimal amount)
         {
             if (ModelState.IsValid)
             {
                 _bankService.DepositAccount(id, amount);
+                Account = _bankService.GetAccountById(id);
             }
             return Page();
         }
+
 
     }
 }

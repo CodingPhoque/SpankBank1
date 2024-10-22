@@ -26,6 +26,6 @@ public class DeleteModel : PageModel
 
     public IActionResult OnPost(int id) {
         _bankService.DeleteAccount(id);
-        return RedirectToPage("./Index");
+        return RedirectToPage("./AdminPage");
     }
 }
