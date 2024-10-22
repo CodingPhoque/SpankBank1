@@ -20,11 +20,18 @@ public class CreateModel : PageModel
     [BindProperty]
     public string Password { get; set; }
 
-    public IActionResult OnPost() {
+    public IActionResult OnPost(string pageType) {
         if (ModelState.IsValid)
         {
             _bankService.CreateAccount( Name, Email, Password);
-            return RedirectToPage("./Index");
+            if (pageType == "Admin")
+            {
+                return RedirectToPage("/AdminPage");
+            }
+            else if (pageType == "Customer")
+            {
+                return RedirectToPage("/CustomerPage");
+            }
         }
 
         return Page();
