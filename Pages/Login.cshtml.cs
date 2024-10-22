@@ -8,6 +8,7 @@ namespace SpankBank1.Pages
 {
     public class LoginModel : PageModel
     {
+        [BindProperty]
         public Admin Admin {  get; set; }
 
         private List<Admin> LoadUsers()
