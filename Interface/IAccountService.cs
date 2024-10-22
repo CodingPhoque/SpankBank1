@@ -9,5 +9,10 @@ namespace SpankBank1.Interface
         void CreateAccount(string name, string email, string password); // Create
         void UpdateAccount(Account account);   // Update
         void DeleteAccount(int id);                // Delete
+
+        void DepositAccount(int id, decimal amount);
+
+        void WithdrawAccount(int id, decimal amount);
+        
     }
 }

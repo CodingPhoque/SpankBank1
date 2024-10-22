@@ -1,7 +1,9 @@
 ﻿@page
-@model IndexModel
-@* 
-<h2>Bank Accounts</h2>
+@model SpankBank1.Pages.CustomerPage
+@{
+}
+
+<h2>Your customer accounts</h2>
 
 <table class="table">
     <thead>
@@ -20,8 +22,6 @@
                 <td>@account.Email</td>
                 <td>@account.Balance.ToString("C")</td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@account.Id" class="btn btn-primary">Edit</a>
-                    <a asp-page="./Delete" asp-route-id="@account.Id" class="btn btn-danger">Delete</a>
                     <a asp-page="./Deposit" asp-route-id="@account.Id" class="btn btn-primary">Deposit</a>
                     <a asp-page="./Withdraw" asp-route-id="@account.Id" class="btn btn-danger">Withdraw</a>
                 </td>
@@ -31,7 +31,3 @@
 </table>
 
 <a asp-page="./Create" class="btn btn-success">Create New Account</a>
- *@
-
-
- <h1>Welcome to SpankBank!</h1>

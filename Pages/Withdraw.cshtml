@@ -1,0 +1,11 @@
+﻿@page
+@model SpankBank1.Pages.WithdrawModel
+
+
+<form method="post">
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" required>
+    <button type="submit">Withdraw</button>
+</form>
+
+<h2>Account Balance: @Model.Balance</h2>
